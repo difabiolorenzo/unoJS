@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url('../font/Gotham\ Light.otf');
+}
+
+
+:root {
+  --uno_red: #F22103;
+  --uno_blue: #0062AD;
+  --uno_green: #44BB01;
+  --uno_yellow: #FFCC00;
+  --uno_light_grey: #767072;
+  --uno_dark_grey: #2F2B2C;
+}
+
+body {
+  font-family: 'Gotham';
+  margin: 0;
+  transition: all 0.25s;
+  overflow: overlay;
+  background-color:black;
+}
+
+a {text-shadow: 0px 3px 3px #00000054;}
+img {
+  
+  width: 150px;
+  -webkit-filter: drop-shadow(0px 3px 3px #00000054);
+  filter: drop-shadow(0px 3px 3px #00000054);
+}
+
+button,
+input,
+select {
+  background-color: #31313133;
+  transition: all 0.25s;
+  color: white;
+  display: inline-block;
+  font-size: 1.125em;
+  margin: 1vw;
+  border: 0;
+  border: 1px solid hsla(0, 0%, 100%, 0.25);
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  height: 7vw;
+}
+
+button:hover,
+input:hover,
+select:hover {
+  background-color: #0005;
+}
+
+
+
+::-webkit-scrollbar {
+width: 1;
+height: 1vw;
+}
+
+::-webkit-scrollbar-track {
+background: #f1f1f100; 
+}
+
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+div#game_page {
+  background-color: black;
+}
+
+
+/* Desktop: */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Desktop: */
+@media only screen and (min-width: 1024px) {
+button, input, select {
+  font-size: 1.5em;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-top: 1.5vw;
+  margin-bottom: 5vw;
+}
+
+}

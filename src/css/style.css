@@ -1,0 +1,128 @@
+
+
+    div {
+        /* border: 1px solid white; */
+    }
+
+
+    
+
+
+    #card_label_middle img {
+        width: 75%;
+        margin-top: 15%;
+        padding-bottom: 12.5%;
+    }
+
+    div.black_card {
+        background: var(--uno_dark_grey);
+    }
+
+    div.yellow_card {
+        background: var(--uno_yellow);
+    }
+
+    div.green_card {
+        background: var(--uno_green);
+    }
+
+    div.blue_card {
+        background: var(--uno_blue);
+    }
+
+    div.red_card {
+        background: var(--uno_red);
+    }
+
+    .black_card div#card_label_top,
+    .black_card div#card_label_middle,
+    .black_card div#card_label_bottom {
+        color: white;
+    }
+
+
+
+    
+
+    div#deck a {
+        font-size: 5vw;
+    }
+  
+  
+    .little_label {
+        padding-top: 5%;
+        padding-left: 7.5%;
+        font-size: 3vw;
+    }
+    .little_label img {
+        height: 3.33vw;
+        width: 3.33vw;
+    }
+
+    div#card_label_middle {
+        text-align: center;
+        font-size: 16.75vw !important;
+    }
+    div#card_label_bottom {
+        transform: rotateZ(180deg);
+    }
+
+
+    .big_card {
+        position: absolute;
+        height: 50vw;
+        width: 30vw;
+        border-radius: 2.5vw;
+        box-shadow: 0 0 1em 0px black;
+    }
+    .playable_card {
+        height: 30vw;
+        width: 20vw;
+        margin: 0.5vw;
+        border-radius: 2vw;
+        color: white;
+    }
+    .bot_card {
+        height: 13.3vw;
+        width: 10vw;
+        border-radius: 2vw;
+        margin: 0.5vw;
+    }
+    .bot_card>img {
+        height: 70%;
+        width: 85%;
+        margin-top: 22.5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+div#top_section {
+    height: 10%;
+}
+
+div#game {
+    height: 90%;
+    display: flex;
+}
+
+table#bot_deck {
+    /* width: 100%; */
+}
+
+div#deck {
+    width: 100%;
+    padding-left: 12.5%;
+    padding-top: 50%;
+}
+
+table#playable_card {
+    width: 100%;
+}
+
+img.backcard_logo {
+    padding-top: 4.5vw;
+}
+
+table#player_deck {
+    overflow: initial;
+}
