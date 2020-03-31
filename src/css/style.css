@@ -3,6 +3,10 @@
     div {
         /* border: 1px solid white; */
     }
+    
+    a {
+        color:white
+    }
 
 
     
@@ -10,7 +14,7 @@
 
     #card_label_middle img {
         width: 75%;
-        margin-top: 15%;
+        margin-top: 10%;
         padding-bottom: 12.5%;
     }
 
@@ -41,16 +45,34 @@
     }
 
 
-
-    
-
-    div#deck a {
-        font-size: 5vw;
+    .big_card_little_label {
+        padding-top: 7.5%;
+        padding-left: 7.5%;
+        font-size: 6.66vw;
     }
-  
-  
+    .big_card_little_label img {
+        height: 6.66vw;
+        width: 6.66vw;
+    }
+
+    div#big_card_label_middle {
+        text-align: center;
+        font-size: 23.33vw !important;
+    }
+    #big_card_label_middle img {
+        width: 66.6%;
+        margin-top: 10%;
+        padding-bottom: 10%;
+    }
+
+
+
+
+    div#card_label_bottom {
+        transform: rotateZ(180deg);
+    }  
     .little_label {
-        padding-top: 5%;
+        padding-top: 3.33%;
         padding-left: 7.5%;
         font-size: 3vw;
     }
@@ -70,59 +92,123 @@
 
     .big_card {
         position: absolute;
-        height: 50vw;
-        width: 30vw;
+        width: 34vw;
+        height: 48.25vw;
         border-radius: 2.5vw;
-        box-shadow: 0 0 1em 0px black;
+        box-shadow: 1vw 1vw 2vw -1.25vw hsl(0, 0%, 0%);
     }
     .playable_card {
-        height: 30vw;
+/*         B8 Format, ISO 216, 62*88 */
         width: 20vw;
+        height: 28.38vw;
         margin: 0.5vw;
         border-radius: 2vw;
         color: white;
+        box-shadow: 0.5vw 0.5vw 0.75vw 0px hsla(0, 0%, 0%, 0.25);
     }
     .bot_card {
-        height: 13.3vw;
         width: 10vw;
+        height: 13.3vw;
         border-radius: 2vw;
         margin: 0.5vw;
     }
     .bot_card>img {
-        height: 70%;
         width: 85%;
+        height: 70%;
         margin-top: 22.5%;
         margin-left: 5%;
         margin-right: 5%;
     }
 
-div#top_section {
+div#option {
     height: 10%;
+    display: flex;
+    padding: 1vw;
 }
 
 div#game {
-    height: 90%;
-    display: flex;
+    height: 104%;
 }
 
-table#bot_deck {
-    /* width: 100%; */
-}
 
-div#deck {
-    width: 100%;
-    padding-left: 12.5%;
-    padding-top: 50%;
-}
+div#deck {height: 33.33%;padding-top: 20%;padding-left: 33.33%;}
+table#playable_card { width: 100%; }
 
-table#playable_card {
-    width: 100%;
-}
+img.backcard_logo { padding-top: 4.5vw; }
 
+div#player_deck_div, div#bot_deck_div {overflow-x: scroll;}
+table#player_deck, table#bot_deck {overflow-x: scroll;height: 20%;width: auto;margin: auto;padding: 10px;}
+
+
+/* Desktop: */
+@media only screen and (min-width: 1024px) {
+    .playable_card {
+    width: 6vw;
+    height: 8.51vw;
+    margin: 0.25vw;
+    border-radius: 0.33vw;
+    box-shadow: 0.5vw 0.5vw 0.75vw 0px hsla(0, 0%, 0%, 0.25);
+}
+#card_label_middle img {
+    width: 66%;
+    margin-top: 10%;
+    padding-bottom: 9%;
+}
 img.backcard_logo {
-    padding-top: 4.5vw;
+    padding-top: 23%;
 }
-
-table#player_deck {
-    overflow: initial;
+div#deck {
+    height: 46.66%;
+    padding-top: 0%;
+    padding-left: 41%;
+}
+.big_card {
+    width: 15vw;
+    height: 21.29vw;
+    border-radius: 0.75vw;
+    box-shadow: 1vw 1vw 2vw -1.25vw hsl(0, 0%, 0%);
+}
+.big_card_little_label {
+    padding-top: 10%;
+    padding-left: 8.5%;
+    font-size: 2.75em;
+}
+div#big_card_label_middle {
+    font-size: 11.33vw !important;
+}
+div#option {
+    height: 7.5%;
+    width:auto;
+    display: inline-flex;
+    padding: 0.1vw;
+}
+button, input, select {
+    width: 5vw;
+    height: 2.5vw;
+    margin-left: 0.1vw;
+    margin-right: 0.1vw;
+    font-size: 1vw;
+}
+.little_label {
+    padding-top: 4.53%;
+    padding-left: 7.5%;
+    font-size: 1.5vw;
+}
+.little_label img {
+    height: 1.33vw;
+    width: 1.33vw;
+}
+div#card_label_middle {
+    font-size: 3.5vw !important;
+}
+.big_card_little_label img {
+    height: 2.5vw;
+    width: 2.5vw;
+}
+#big_card_label_middle img {
+    width: 50%;
+    margin-top: 20%;
+    padding-bottom: 20%;
+}
+table#player_deck, table#bot_deck {width: auto;margin: auto;padding: 10px;}
 }

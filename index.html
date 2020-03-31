@@ -7,36 +7,33 @@
     <link rel="stylesheet" type="text/css" title="css" href="src/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.png">
+    <script type="text/javascript" src="./src/js/game/game.js"></script>
+    <script type="text/javascript" src="./src/js/jquery/jquery-2.2.0.min.js"></script>
   </head>
 
   <body id="body" onLoad="initVariables()">
-    <script type="text/javascript" src="./src/js/game/game.js"></script>
 
     <div class="page" id="game_page" style="display: block;">
-      <div id="top_section">
-
-        <button>Quit</button>
-        <button>Uno</button>
-        <button onclick="pickFromDeck()">Pick</button>
-
-      </div>
-
 
       <div id="game">
 
-        <table id="bot_deck" cellpadding="2">
-          <tr>
-          </tr>
-        </table>
-  
-        <div id="deck">
-          <div class="big_card black_card" style="transform: rotateZ(5deg);">
-          </div>
+        <div id="bot_deck_div">
+          <table id="bot_deck"><tr></tr></table>
         </div>
 
-        <table id="player_deck" cellpadding="2">
-        </table>
+        <div id="deck">
+          <div class="big_card black_card" style="transform: rotateZ(5deg);"></div>
+        </div>
 
+        <div id="player_deck_div">
+          <table id="player_deck"><tr></tr></table>
+        </div>
+        
+        <div id="option">
+          <button>Quit</button>
+          <button>Uno</button>
+          <button onclick="pickFromMiddleDeck()">Pick</button>
+        </div>
       </div>
     </div>
   </body>

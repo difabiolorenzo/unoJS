@@ -1,40 +1,44 @@
-    init_card_color = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "black", "black", "black", "black", "black", "black", "black", "black"];
-    init_card_tag = ["0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "ask", "ask", "ask", "ask", "plus_four", "plus_four", "plus_four", "plus_four"];
-    deck_card_tag = []
-    deck_card_color = []
-
-    player_card_tag = []
-    player_card_color = []
-
-    bot_card_tag = []
-    bot_card_color = []
-
-    bot_card_number = 7;
-    player_card_number = 7;
-
-    turn = "player";
-
-
-
     function initVariables() {
+        init_card_tag = ["0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "ask", "ask", "ask", "ask", "plus_four", "plus_four", "plus_four", "plus_four"];
+        init_card_color = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "black", "black", "black", "black", "black", "black", "black", "black"];
+        middle_deck_card_tag = [];
+        middle_deck_card_color = [];
+        revert_deck_card_tag = [];
+        revert_deck_card_color = [];
+        player_card_tag = [];
+        player_card_color = [];
+        bot_card_tag = [];
+        bot_card_color = [];
+
+        bot_card_number = 7;
+        player_card_number = 7;
+    
+        turn = "player";
+        
+        player_deck = document.getElementById("player_deck");
+        bot_deck = document.getElementById("bot_deck");
+        revert_deck_html = document.getElementById("deck");
+
+        mixAllCards();
+        distribution();
+    }
+
+    function mixAllCards() {
         for (i=0 ; i<108 ; i++) {
-            //pick a random number between 0 and [card_color.length]
-            randomInt = Math.floor(Math.random() * init_card_color.length);
+            //pick a random number between 0 and [init_card_tag.length]
+            var random = Math.floor(Math.random() * init_card_tag.length);
 
             // add into deck
-            deck_card_tag.push(init_card_tag[randomInt]);
-            deck_card_color.push(init_card_color[randomInt]);
+            middle_deck_card_tag.push(init_card_tag[random]);
+            middle_deck_card_color.push(init_card_color[random]);
 
             // deleting from list
-            init_card_tag.splice(randomInt, 1);
-            init_card_color.splice(randomInt, 1);
-        } 
-        
+            init_card_tag.splice(random, 1);
+            init_card_color.splice(random, 1);
+        }
         // like it was before
-        card_color = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "black", "black", "black", "black", "black", "black", "black", "black"];
-        card_tag = ["0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "ask", "ask", "ask", "ask", "plus_four", "plus_four", "plus_four", "plus_four"];
-        
-        distribution();
+        init_card_color = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "black", "black", "black", "black", "black", "black", "black", "black"];
+        init_card_tag = ["0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "0", "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "plus_two", "plus_two", "switch", "switch", "skip", "skip", "ask", "ask", "ask", "ask", "plus_four", "plus_four", "plus_four", "plus_four"];
     }
 
     function changeTurn() {
@@ -45,119 +49,139 @@
         }
     }
 
-    function chooseCardFromPlayerDeck(obj) {
-        console.log(obj.getAttributeNode("tag").value + " " + obj.getAttributeNode("color").value);
-        console.log(obj);
-        obj.getNode("div").value;
-    }
-
     function distribution() {
         for (i = 0 ; i < bot_card_number ; i++) {
-            cardFromDeckRandomiser();
-            // add into bot's deck
-            bot_card_tag.push(card_tag_var);
-            bot_card_color.push(card_color_var);
-
-            BotDeckAddCard(card_tag_var, card_color_var);
+            cardFromMiddleDeckRandomiser();
+            BotDeckAddCard(picked_tag, picked_color);
         }
         
         for (i = 0 ; i < player_card_number ; i++) {
-            cardFromDeckRandomiser();
-            // add into players's deck
-            player_card_tag.push(card_tag_var);
-            player_card_color.push(card_color_var);
-
-            PlayerDeckAddCard(card_tag_var, card_color_var);
+            cardFromMiddleDeckRandomiser();
+            PlayerDeckAddCard(picked_tag, picked_color);
         }
+
+        pickFirstCardMiddleDeck();
     }
 
-    function pickFromDeck() {
-        cardFromDeckRandomiser();
-        // add into players's deck
-        player_card_tag.push(card_tag_var);
-        player_card_color.push(card_color_var);
+    function pickFirstCardMiddleDeck() {
+        var random = Math.floor(Math.random() * middle_deck_card_color.length);
 
-        PlayerDeckAddCard(card_tag_var, card_color_var);
+        while (middle_deck_card_color[random] == "black" || middle_deck_card_tag[random] == "plus_two" || middle_deck_card_tag[random] == "plus_four" || middle_deck_card_tag[random] == "switch" || middle_deck_card_tag[random] == "ask" ||  middle_deck_card_tag[random] == "skip" ) {
+            var random = Math.floor(Math.random() * middle_deck_card_color.length);
+        }
+        revert_deck_card_tag.push(middle_deck_card_tag[random]);
+        revert_deck_card_color.push(middle_deck_card_color[random]);
+
+        var picked_tag = middle_deck_card_tag[random];
+        var picked_color = middle_deck_card_color[random];
+
+        addOnReverseDeck(picked_tag , picked_color);
+
+        middle_deck_card_tag.splice(random, 1);
+        middle_deck_card_color.splice(random, 1);
+
+        console.log(middle_deck_card_color.length + " carte(s) restante(s)");
     }
 
+    function addOnReverseDeck(picked_tag , picked_color) {
+        var random_angle = Math.floor(Math.random() * (15 - (-15)) ) + (-15);
+        var card_head = "<div data-color=\"" + picked_color + "\" data-tag=\"" + picked_tag + "\" style=\"transform: rotateZ(" + random_angle + "deg);\" class=\"big_card " + picked_color + "_card\">";
+        if (picked_tag >= 0 && picked_tag <= 9) {
+            var card_top = "<div id=\"card_label_top\" class=\"big_card_little_label\"><a>" + picked_tag + "</a></div>";
+            var card_middle = "<div id=\"big_card_label_middle\"><a>" + picked_tag + "</a></div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"big_card_little_label\"><a>" + picked_tag + "</a></div>";
+        } else if (picked_tag == "plus_two") {
+            var card_top = "<div id=\"card_label_top\" class=\"big_card_little_label\"><a>+2</a></div>";
+            var card_middle = "<div id=\"big_card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"big_card_little_label\"><a>+2</a></div>";
+        } else if (picked_tag == "plus_four") {
+            var card_top = "<div id=\"card_label_top\" class=\"big_card_little_label\"><a>+4</a></div>";
+            var card_middle = "<div id=\"big_card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"big_card_little_label\"><a>+4</a></div>";
+        } else {
+            var card_top = "<div id=\"card_label_top\" class=\"big_card_little_label\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_middle = "<div id=\"big_card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>"
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"big_card_little_label\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div></div>";
+        }
 
-    function cardFromDeckRandomiser() {
-        //pick a random number between 0 and [deck_card_color.length]
-        r = Math.floor(Math.random() * deck_card_color.length);
+        var card_complete_content_html = card_head + card_top + card_middle + card_bottom;
+        revert_deck_html.innerHTML += card_complete_content_html;
+    }
 
-        //tag and color form #r card in deck
-        card_tag_var = deck_card_tag[r];
-        card_color_var = deck_card_color[r];
+    function pickFromMiddleDeck() {
+        cardFromMiddleDeckRandomiser();
+        PlayerDeckAddCard(picked_tag, picked_color);
+    }
+
+    function cardFromMiddleDeckRandomiser() {
+        //pick a random number between 0 and [middle_deck_card_color.length]
+        random = Math.floor(Math.random() * middle_deck_card_color.length);
+
+        //tag and color form #random card in deck
+        picked_tag = middle_deck_card_tag[random];
+        picked_color = middle_deck_card_color[random];
 
         // deleting from deck
-        deck_card_tag.splice(r, 1);
-        deck_card_color.splice(r, 1);
+        middle_deck_card_tag.splice(random, 1);
+        middle_deck_card_color.splice(random, 1);
     }
 
-    function BotDeckAddCard(card_tag, card_color) {
+    function BotDeckAddCard(picked_tag, picked_color) {
 
-        var word_list_table = document.getElementById("bot_deck");
-     
-        var word_list_rowCount = word_list_table.rows.length;
-        var word_list_row = word_list_table.insertRow(word_list_rowCount);
-     
-
-        card_head = "";
-        card_top = "";
-        card_middle = "";
-        card_bottom = "";
+        // add into bot's deck
+        bot_card_tag.push(picked_tag);
+        bot_card_color.push(picked_color);
 
         //HTML parts of card
-        card_head = "<div color=\"" + card_color + "\" tag=\"" + card_tag + "\" class=\"playable_card " + card_color + "_card\">";
-        
-        card_middle = "<div id=\"card_label_middle\"> <img class=\"backcard_logo\" src=\"src/img/uno_logo.png\"> </div>";            
-
-            //write down into document
-            word_list_row.insertCell(0).innerHTML =  card_head + card_middle;
-    }
-
-    function PlayerDeckAddCard(card_tag, card_color) {
-
-        var word_list_table = document.getElementById("player_deck");
-        var word_list_row = word_list_table.insertRow(word_list_table.rows.length);
-
-        //HTML parts of card
-        card_head = "<div color=\"" + card_color + "\" tag=\"" + card_tag + "\" class=\"playable_card " + card_color + "_card\" onclick=\"PlayerDeckPickCard(this)\">";
-        
-        if (card_tag >= 0 && card_tag <= 9) {
-            card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>" + card_tag + "</a></div>";
-            card_middle = "<div id=\"card_label_middle\"><a>" + card_tag + "</a></div>";
-            card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>" + card_tag + "</a></div>";
-        } else if (card_tag == "plus_two") {
-            card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>+2</a></div>";
-            card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + card_tag + ".png\"> </div>";
-            card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>+2</a></div>";
-        } else if (card_tag == "plus_four") {
-            card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>+4</a></div>";
-            card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + card_tag + ".png\"> </div>";
-            card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>+4</a></div>";
-        } else {
-            card_top = "<div id=\"card_label_top\" class=\"little_label\"> <img src=\"src/img/sign/" + card_tag + ".png\"> </div>";
-            card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + card_tag + ".png\"> </div>"
-            card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"> <img src=\"src/img/sign/" + card_tag + ".png\"> </div></div>";
-        }            
+        var card_head = "<td><div data-color=\"" + picked_color + "\" data-tag=\"" + picked_tag + "\" class=\"playable_card " + picked_color + "_card\">";
+        var card_middle = "<div id=\"card_label_middle\"> <img class=\"backcard_logo\" src=\"src/img/uno_logo.png\"> </div><td>";            
 
         //write down into document
-        word_list_row.insertCell(0).innerHTML =  card_head + card_top + card_middle + card_bottom;
+        bot_deck.rows[0].insertCell().innerHTML +=  card_head + card_middle;
+    }
 
-        card_head = "";
-        card_top = "";
-        card_middle = "";
-        card_bottom = "";
+    function PlayerDeckAddCard(picked_tag, picked_color) {
+
+        // add into players's deck
+        player_card_tag.push(picked_tag);
+        player_card_color.push(picked_color);
+
+        //HTML parts of card
+        var card_head = "<td><div data-color=\"" + picked_color + "\" data-tag=\"" + picked_tag + "\" class=\"playable_card " + picked_color + "_card\" onclick=\"PlayerDeckPickCard(this)\">";
+        
+        if (picked_tag >= 0 && picked_tag <= 9) {
+            var card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>" + picked_tag + "</a></div>";
+            var card_middle = "<div id=\"card_label_middle\"><a>" + picked_tag + "</a></div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>" + picked_tag + "</a></div>";
+        } else if (picked_tag == "plus_two") {
+            var card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>+2</a></div>";
+            var card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>+2</a></div>";
+        } else if (picked_tag == "plus_four") {
+            var card_top = "<div id=\"card_label_top\" class=\"little_label\"><a>+4</a></div>";
+            var card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"><a>+4</a></div>";
+        } else {
+            var card_top = "<div id=\"card_label_top\" class=\"little_label\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>";
+            var card_middle = "<div id=\"card_label_middle\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div>"
+            var card_bottom = "<div id=\"card_label_bottom\" class=\"little_label\"> <img src=\"src/img/sign/" + picked_tag + ".png\"> </div></div></td>";
+        }
+
+        //write down into document
+        player_deck.rows[0].insertCell().innerHTML +=  card_head + card_top + card_middle + card_bottom;
     }
 
     function PlayerDeckPickCard(obj) {
-        var word_list_index = obj.parentNode.parentNode.rowIndex;
-        var word_list_table = document.getElementById("player_deck");
-        word_list_table.deleteRow(word_list_index);
+        var picked_card_index = obj.parentNode.cellIndex;
+        var picked_color = player_card_color[picked_card_index];
+        var picked_tag = player_card_tag[picked_card_index];
 
+        addOnReverseDeck(picked_tag , picked_color);
+
+        player_deck.rows[0].deleteCell(picked_card_index);
 
         // deleting from list deck
-        player_card_tag.splice(word_list_index, 1);
-        player_card_color.splice(word_list_index, 1);
+
+        player_card_tag.splice(picked_card_index, 1);
+        player_card_color.splice(picked_card_index, 1);
     }
