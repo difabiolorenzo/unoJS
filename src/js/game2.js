@@ -12,8 +12,7 @@ function initVariables() {
     player_can_pick = true;
     bot_can_pick = false;
 
-    reverse_display_bot_card = false;
-    reverse_display_player_card = false;
+    reverse_display_bot_card = true;
 
     bot_card_number = 7;
     player_card_number = 7;

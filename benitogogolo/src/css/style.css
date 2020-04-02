@@ -1,0 +1,274 @@
+
+@keyframes pop_up_card {
+    0% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+    div {
+        /* border: 1px solid white; */
+    }
+
+    #card_label_middle img {
+        width: 75%;
+        margin-top: 10%;
+        padding-bottom: 12.5%;
+    }
+
+    div.black_card {
+        background: var(--uno_dark_grey);
+    }
+
+    div.yellow_card {
+        background: var(--uno_yellow);
+    }
+
+    div.green_card {
+        background: var(--uno_green);
+    }
+
+    div.blue_card {
+        background: var(--uno_blue);
+    }
+
+    div.red_card {
+        background: var(--uno_red);
+    }
+
+    .black_card div#card_label_top,
+    .black_card div#card_label_middle,
+    .black_card div#card_label_bottom {
+        color: white;
+    }
+
+
+    .big_card_little_label {
+        padding-top: 7.5%;
+        padding-left: 7.5%;
+        font-size: 6.66vw;
+    }
+    .big_card_little_label img {
+        height: 6.66vw;
+        width: 6.66vw;
+    }
+
+    div#big_card_label_middle {
+        text-align: center;
+        font-size: 23.33vw !important;
+    }
+    #big_card_label_middle img {
+        width: 66.6%;
+        margin-top: 10%;
+        padding-bottom: 10%;
+    }
+
+
+
+
+    div#card_label_bottom {
+        transform: rotateZ(180deg);
+    }  
+    .little_label {
+        padding-top: 3.33%;
+        padding-left: 7.5%;
+        font-size: 3vw;
+    }
+    .little_label img {
+        height: 3.33vw;
+        width: 3.33vw;
+    }
+
+    div#card_label_middle {
+        text-align: center;
+        font-size: 16.75vw !important;
+    }
+    div#card_label_bottom {
+        transform: rotateZ(180deg);
+    }
+
+    .big_card , .playable_card{
+    animation: pop_up_card 0.75s cubic-bezier(0.68, -0.55, 0.21, 0.73);
+    }
+
+    .big_card {
+        position: absolute;
+        width: 34vw;
+        height: 48.25vw;
+        border-radius: 2.5vw;
+        box-shadow: 1vw 1vw 2vw -1.25vw hsl(0, 0%, 0%);
+    }
+    .playable_card {
+/*         B8 Format, ISO 216, 62*88 */
+        width: 20vw;
+        height: 28.38vw;
+        margin: 0.5vw;
+        border-radius: 2vw;
+        color: white;
+        box-shadow: 0.5vw 0.5vw 0.75vw 0px hsla(0, 0%, 0%, 0.25);
+    }
+    .bot_card {
+        width: 10vw;
+        height: 13.3vw;
+        border-radius: 2vw;
+        margin: 0.5vw;
+    }
+    .bot_card>img {
+        width: 85%;
+        height: 70%;
+        margin-top: 22.5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+div#option {
+    height: 10%;
+    display: flex;
+    padding: 1vw;
+}
+
+div#game {
+    height: 100%;
+}
+
+
+div#reverse_deck {height: 33.33%;padding-top: 20%;padding-left: 33.33%;}
+table#playable_card { width: 100%; }
+
+img.backcard_logo { padding-top: 4.5vw; }
+
+div#player_deck_div, div#bot_deck_div {overflow-x: scroll;}
+table#player_deck, table#bot_deck {overflow-x: scroll;height: 20%;width: auto;margin: auto;padding: 10px;}
+
+td, table {
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.21, 0.73);
+    transition-delay: 0s;
+    transform: scale(1);
+    opacity: 1;
+}
+
+div#ask, div#alert {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.90);
+    top: 0;
+    padding-top: 20%;
+}
+
+#ask h2, #alert {
+    text-align: center;
+}
+
+a.ask, a.alert {
+    padding: 2vw;
+    margin: 0.5vw;
+    background: orange;
+    width: 50%;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 0.3vw;
+    text-align: center;
+}
+a.ask.red {
+    background: var(--uno_red);
+}
+a.ask.yellow {
+    background: var(--uno_yellow);
+}
+a.ask.blue {
+    background: var(--uno_blue);
+}
+a.ask.green {
+    background: var(--uno_green);
+}
+
+
+.line_ask {
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+/* Desktop: */
+@media only screen and (min-width: 1024px) {
+    div#ask, div#alert {
+    padding-top: 12.5%;
+    }
+
+    .playable_card {
+    width: 6vw;
+    height: 8.51vw;
+    margin: 0.25vw;
+    border-radius: 0.33vw;
+    box-shadow: 0.5vw 0.5vw 0.75vw 0px hsla(0, 0%, 0%, 0.25);
+}
+#card_label_middle img {
+    width: 50%;
+    margin-top: 20%;
+    padding-bottom: 9%;
+}
+img.backcard_logo {
+    padding-top: 23%;
+}
+div#reverse_deck {
+    height: 46.66%;
+    padding-top: 0%;
+    padding-left: 41%;
+}
+.big_card {
+    width: 15vw;
+    height: 21.29vw;
+    border-radius: 0.75vw;
+    box-shadow: 1vw 1vw 2vw -1.25vw hsl(0, 0%, 0%);
+}
+.big_card_little_label {
+    padding-top: 10%;
+    padding-left: 8.5%;
+    font-size: 2.75em;
+}
+div#big_card_label_middle {
+    font-size: 11.33vw !important;
+}
+div#option {
+    height: 5%;
+    display: inline-flex;
+    padding: 0.1vw;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+button, input, select {
+    width: 100%;
+    height: 2.5vw;
+    margin-left: 0.1vw;
+    margin-right: 0.1vw;
+    font-size: 1vw;
+}
+.little_label {
+    padding-top: 4.53%;
+    padding-left: 7.5%;
+    font-size: 1.5vw;
+}
+.little_label img {
+    height: 1.33vw;
+    width: 1.33vw;
+}
+div#card_label_middle {
+    font-size: 3.5vw !important;
+}
+.big_card_little_label img {
+    height: 2.5vw;
+    width: 2.5vw;
+}
+#big_card_label_middle img {
+    width: 50%;
+    margin-top: 20%;
+    padding-bottom: 20%;
+}
+table#player_deck, table#bot_deck {width: auto;margin: auto;padding: 10px;}
+}
+

@@ -1,0 +1,55 @@
+<html>
+
+  <head>
+    <title>UnoJS</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" title="css" href="src/css/global.css">
+    <link rel="stylesheet" type="text/css" title="css" href="src/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.png">
+    <script type="text/javascript" src="./src/js/game/game.js"></script>
+  </head>
+
+  <body id="body" onLoad="initVariables()">
+
+    <div class="page" id="game_page" style="display: block;">
+
+      <div id="game">
+
+        <div id="bot_deck_div">
+          <table id="bot_deck" style="transform: scale(0.85) ;opacity: 0.5;"><tr></tr></table>
+        </div>
+
+        <div id="reverse_deck">
+          <!-- <div class="big_card black_card" style="transform: rotateZ(5deg);"></div> -->
+        </div>
+
+        <div id="player_deck_div">
+          <table id="player_deck"><tr></tr></table>
+        </div>
+        
+        <div id="option">
+          <button onclick="changeTurn()" id="pass_button">Pass</button>
+          <button id="uno_button">Uno</button>
+          <button onclick="pickOnceFromMiddleDeck()" id="pick_button">Pick</button>
+        </div>
+        <div id="ask" style="display: none;">
+          <h2>Which color?</h2>
+          <div class="line_ask" style="display:flex">
+            <a class="ask green" onclick="chooseColor('green')">Greebow</a>
+            <a class="ask blue"" onclick="chooseColor('blue')">Bled</a>
+          </div>
+          <div class="line_ask" style="display:flex">
+            <a class="ask yellow"" onclick="chooseColor('yellow')">Yellus</a>
+            <a class="ask red"" onclick="chooseColor('red')">Reen</a>
+        </div>
+      </div>
+      <div id="alert" style="display: block;">
+        <h2>UnoJS - BenitoGogolo</h2>
+        
+        <div style="display: flex; margin-right: 10%; margin-left: 10%; margin-top: 5%;">
+          <button onclick="this.parentNode.parentNode.style.display = 'none'">Lance le jeu zebi</button>
+        </div>
+    </div>
+  </body>
+</html>
