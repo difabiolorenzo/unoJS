@@ -16,14 +16,16 @@
 body {
   font-family: 'Gotham';
   margin: 0;
+  padding: 0;
   transition: all 0.25s;
-  overflow: overlay;
+  overflow: hidden;
   background-color:white;
 }
 
-a {text-shadow: 0px 3px 3px #00000054;}
+a, p, h1, h2, h3, code {color:white; text-shadow: 0px 3px 3px #00000054;}
+code {font-size: 1.5em;color: rebeccapurple;}
+
 img {
-  
   width: 150px;
   -webkit-filter: drop-shadow(0px 3px 3px #00000054);
   filter: drop-shadow(0px 3px 3px #00000054);
@@ -43,12 +45,14 @@ select {
   margin-left: 1vw;
   margin-right: 1vw;
   font-size: 1.25em;
+  width: 75vw;
+  height: 20vw;
 }
 
 button:hover,
 input:hover,
 select:hover {
-  background-color: #0005;
+  background-color: #a4a4a455;
 }
 
 

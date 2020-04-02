@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.png">
     <script type="text/javascript" src="./src/js/game/game.js"></script>
-    <script type="text/javascript" src="./src/js/jquery/jquery-2.2.0.min.js"></script>
   </head>
 
   <body id="body" onLoad="initVariables()">
@@ -18,11 +17,11 @@
       <div id="game">
 
         <div id="bot_deck_div">
-          <table id="bot_deck"><tr></tr></table>
+          <table id="bot_deck" style="transform: scale(0.85) ;opacity: 0.5;"><tr></tr></table>
         </div>
 
-        <div id="deck">
-          <div class="big_card black_card" style="transform: rotateZ(5deg);"></div>
+        <div id="reverse_deck">
+          <!-- <div class="big_card black_card" style="transform: rotateZ(5deg);"></div> -->
         </div>
 
         <div id="player_deck_div">
@@ -30,11 +29,35 @@
         </div>
         
         <div id="option">
-          <button>Quit</button>
-          <button>Uno</button>
-          <button onclick="pickFromMiddleDeck()">Pick</button>
+          <button onclick="changeTurn()" id="pass_button">Pass</button>
+          <button id="uno_button">Uno</button>
+          <button onclick="pickOnceFromMiddleDeck()" id="pick_button">Pick</button>
+        </div>
+        <div id="ask" style="display: none;">
+          <h2>Which color?</h2>
+          <div class="line_ask" style="display:flex">
+            <a class="ask green" onclick="chooseColor('green')">Greebow</a>
+            <a class="ask blue"" onclick="chooseColor('blue')">Bled</a>
+          </div>
+          <div class="line_ask" style="display:flex">
+            <a class="ask yellow"" onclick="chooseColor('yellow')">Yellus</a>
+            <a class="ask red"" onclick="chooseColor('red')">Reen</a>
         </div>
       </div>
+      <div id="alert" style="display: block;">
+        <h2>UnoJS</h2>
+        <p>Ce jeu est en alpha</p>
+        <p>Vous devez connaitre un peu les règles? de toutes façons vous allez suivre les miennes</p>
+        <p>Quoi? Le bouton Uno ne sert à rien?</p>
+        <p><a>Les cartes </a><code>Passer</code><a> ou </a><code>Inversion</code><a> ont les mêmes effets.</a></p>
+        <p>Elles sont cummulables sur les cartes de l'adversaire.</p>
+        <p>Piocher une carte ne permet pas de rejouer juste après.</p>
+        <p>L'ordi demandera toujours du vert, parce qu'il aime bien ça.</p>
+        
+        <div style="display: flex; margin-right: 5%; margin-left: 5%; margin-top: 5%;">
+          <button style="color: red;" onclick="window.location.href = 'https://difabiolorenzo.github.io/motusJS/'">Ok boomer</button>
+          <button style="color: green;" onclick="this.parentNode.parentNode.style.display = 'none'">J'ai plus de 18 ans</button>
+        </div>
     </div>
   </body>
 </html>
